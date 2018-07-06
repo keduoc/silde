@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="slide.css">
+</head>
+<body>
+
+<div class="dad">
+    <div class="images" id='images'>
+        <img src="01.png" width=400 alt="">
+        <img src="03.png" width=400 alt="">
+        <img src="04.png" width=400 alt="">
+        <img src="02.png" width=400 alt="">
+    </div>
+</div>
+<div id="button">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+</div>
+
+<script>
+    var allButtons=$('#button button')
+
+    for(let i =0; i<allButtons.length;i++){
+        $(allButtons[i]).on('click',function(e){
+            var index=$(e.currentTarget).index()
+            var m=index*-400
+            $('#images').css({
+                transform:'translateX('+m+'px)'
+            })
+            allButtons.eq(index).addClass('x').siblings('.x').removeClass('x')
+        })
+    }
+</script>
+
+</body>
+</html>
